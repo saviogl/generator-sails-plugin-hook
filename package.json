@@ -1,0 +1,31 @@
+{
+  "name": "generator-sails-plugin-hook",
+  "version": "0.0.0",
+  "description": "Yeoman generator",
+  "license": "MIT",
+  "main": "app/index.js",
+  "repository": "saviogl/generator-sails-plugin-hook",
+  "author": {
+    "name": "Sávio Lucena",
+    "email": "saviogl@gmail.com",
+    "url": "https://github.com/saviogl"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "files": [
+    "app"
+  ],
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "dependencies": {
+    "yeoman-generator": "^0.19.0",
+    "chalk": "^1.0.0",
+    "yosay": "^1.0.2",
+    "underscore.string": "^3.0.3"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  }
+}

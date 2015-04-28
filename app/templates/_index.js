@@ -1,0 +1,20 @@
+'use strict';
+var sailsPluginHook = require('./lib/app.js');
+
+module.exports = function (sails) {
+		sailsPluginHook.adaptSails(sails);
+
+    return {
+	    defaults: {
+	    	<=% props.nameSlug =>: {
+
+	    	}
+	    },
+
+      initialize: function(cb) {
+      	sailsPluginHook.init(sails);
+
+        return cb();
+      }      
+    };
+};
