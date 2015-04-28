@@ -72,7 +72,7 @@ module.exports = yeoman.generators.Base.extend({
 
       this.fs.copyTpl(
         this.templatePath('_package.json'),
-        path.join(this.props.sailsName, this.destinationPath('package.json')),
+        this.destinationPath(path.join(this.props.sailsName, 'package.json')),
         this.props
       );
     },
@@ -80,12 +80,14 @@ module.exports = yeoman.generators.Base.extend({
     projectfiles: function () {
       this.fs.copy(
         this.templatePath('gitignore'),
-        path.join(this.props.sailsName, this.destinationPath('.gitignore'))
+        this.destinationPath(path.join(this.props.sailsName, '.gitignore'))        
       );
     }
   },
 
   install: function () {
+    // Go to correct directory
+    process.chdir( path.join(this.destinationPath, this.props.sailsName) );    
     this.installDependencies();
   }
 });
