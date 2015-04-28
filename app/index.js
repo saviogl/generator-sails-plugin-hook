@@ -2,18 +2,9 @@
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
+var _s = require('underscore.string');
 
 module.exports = yeoman.generators.Base.extend({
-  // note: arguments and options should be defined in the constructor.
-  constructor: function () {
-    yeoman.generators.Base.apply(this, arguments);
-
-    // This makes `appname` a required argument.
-    this.argument('appname', { type: String, required: true });
-    // And you can then access it later on this way; e.g. CamelCased
-    this.appname = this._.camelize(this.appname);
-  },
-
   initializing: function () {
     this.pkg = require('../package.json');
   },
@@ -28,6 +19,12 @@ module.exports = yeoman.generators.Base.extend({
 
     var prompts = [{
       type: 'input',
+      name: 'name',
+      message: 'Your Sails-Plugin-Hook\'s name',
+      default: 'new-plugin'
+    },
+    {
+      type: 'input',
       name: 'description',
       message: 'Your Sails-Plugin-Hook description',
       default: 'Sails-Plugin-Hook'
@@ -36,7 +33,7 @@ module.exports = yeoman.generators.Base.extend({
     this.prompt(prompts, function (props) {
       this.props = props;
       // To access props later use this.props.someOption;
-      this.props.nameSlug = this._.slugify(this.props.appname);
+      this.props.nameSlug = _s.slugify(this.props.name);
       this.props.sailsName = 'sails-hook-' + this.props.nameSlug;
 
       done();
