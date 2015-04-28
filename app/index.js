@@ -6,7 +6,7 @@ var yosay = require('yosay');
 module.exports = yeoman.generators.Base.extend({
   // note: arguments and options should be defined in the constructor.
   constructor: function () {
-    generators.Base.apply(this, arguments);
+    yeoman.generators.Base.apply(this, arguments);
 
     // This makes `appname` a required argument.
     this.argument('appname', { type: String, required: true });
