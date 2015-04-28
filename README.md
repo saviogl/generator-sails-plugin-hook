@@ -1,0 +1,1 @@
+# generator-sails-plugin-hook
