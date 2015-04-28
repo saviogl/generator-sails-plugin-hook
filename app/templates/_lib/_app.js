@@ -1,4 +1,3 @@
-'use strict';
 var _ = require('lodash'),
 		async = require('async'),
 		buildDictionary = require('sails-build-dictionary'),

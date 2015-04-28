@@ -1,4 +1,3 @@
-'use strict';
 var Sails = require('sails').Sails;
 
 describe('Basic tests ::', function() {

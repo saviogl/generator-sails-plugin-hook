@@ -1,4 +1,3 @@
-'use strict';
 /**
  * Load app policies
  *
