@@ -45,28 +45,28 @@ module.exports = yeoman.generators.Base.extend({
     app: function () {
       this.fs.copy(
         this.templatePath('_lib/_app.js'),
-        path.join(this.props.sailsName, this.destinationPath('lib/app.js'))
+        this.destinationPath(path.join(this.props.sailsName, 'lib/app.js'))
       );
 
       this.fs.copy(
         this.templatePath('_lib/_sails/_loadControllers.js'),
-        path.join(this.props.sailsName, this.destinationPath('lib/sails/_loadControllers.js'))
+        this.destinationPath(path.join(this.props.sailsName, 'lib/sails/_loadControllers.js'))
       );
 
       this.fs.copy(
         this.templatePath('_lib/_sails/_loadPolicies.js'),
-        path.join(this.props.sailsName, this.destinationPath('lib/sails/_loadPolicies.js'))
+        this.destinationPath(path.join(this.props.sailsName, 'lib/sails/_loadPolicies.js'))
       );
 
       this.fs.copyTpl(
         this.templatePath('_test/_basic.js'),
-        path.join(this.props.sailsName, this.destinationPath('test/basic.js')),
+        this.destinationPath(path.join(this.props.sailsName, 'test/basic.js')),
         this.props
       );
 
       this.fs.copyTpl(
-        this.templatePath('_index.js'),
-        path.join(this.props.sailsName, this.destinationPath('index.js')),
+        this.templatePath('_index.js'),        
+        this.destinationPath(path.join(this.props.sailsName, 'index.js')),
         this.props
       );
 
@@ -80,14 +80,14 @@ module.exports = yeoman.generators.Base.extend({
     projectfiles: function () {
       this.fs.copy(
         this.templatePath('gitignore'),
-        this.destinationPath(path.join(this.props.sailsName, '.gitignore'))        
+        this.destinationPath(path.join(this.props.sailsName, '.gitignore'))
       );
     }
   },
 
   install: function () {
     // Go to correct directory
-    process.chdir( path.join(this.destinationPath, this.props.sailsName) );    
+    process.chdir( this.props.sailsName );
     this.installDependencies();
   }
 });
