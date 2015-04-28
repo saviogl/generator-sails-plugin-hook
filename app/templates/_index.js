@@ -6,7 +6,7 @@ module.exports = function (sails) {
 
     return {
 	    defaults: {
-	    	<=% props.nameSlug =>: {
+	    	<=% nameSlug =>: {
 
 	    	}
 	    },

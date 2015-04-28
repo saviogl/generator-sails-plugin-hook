@@ -19,7 +19,7 @@ describe('Basic tests ::', function() {
       },
       hooks: {
        // Load the hook
-       '<=% props.sailsName =>': require('../index.js'),
+       '<=% sailsName =>': require('../index.js'),
        // Skip grunt (unless your hook uses it)
        'grunt': false
       },

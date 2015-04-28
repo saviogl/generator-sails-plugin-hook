@@ -3,6 +3,7 @@ var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
 var _s = require('underscore.string');
+var path = require('path');
 
 module.exports = yeoman.generators.Base.extend({
   initializing: function () {
@@ -44,42 +45,42 @@ module.exports = yeoman.generators.Base.extend({
     app: function () {
       this.fs.copy(
         this.templatePath('_lib/_app.js'),
-        this.destinationPath('lib/app.js')
+        path.join(this.props.sailsName, this.destinationPath('lib/app.js'))
       );
 
       this.fs.copy(
         this.templatePath('_lib/_sails/_loadControllers.js'),
-        this.destinationPath('lib/sails/_loadControllers.js')
+        path.join(this.props.sailsName, this.destinationPath('lib/sails/_loadControllers.js'))
       );
 
       this.fs.copy(
         this.templatePath('_lib/_sails/_loadPolicies.js'),
-        this.destinationPath('lib/sails/_loadPolicies.js')
+        path.join(this.props.sailsName, this.destinationPath('lib/sails/_loadPolicies.js'))
       );
 
       this.fs.copyTpl(
         this.templatePath('_test/_basic.js'),
-        this.destinationPath('test/basic.js'),
-        this
+        path.join(this.props.sailsName, this.destinationPath('test/basic.js')),
+        this.props
       );
 
       this.fs.copyTpl(
         this.templatePath('_index.js'),
-        this.destinationPath('index.js'),
-        this
+        path.join(this.props.sailsName, this.destinationPath('index.js')),
+        this.props
       );
 
       this.fs.copyTpl(
         this.templatePath('_package.json'),
-        this.destinationPath('package.json'),
-        this
+        path.join(this.props.sailsName, this.destinationPath('package.json')),
+        this.props
       );
     },
 
     projectfiles: function () {
       this.fs.copy(
         this.templatePath('gitignore'),
-        this.destinationPath('.gitignore')
+        path.join(this.props.sailsName, this.destinationPath('.gitignore'))
       );
     }
   },
