@@ -34,6 +34,7 @@ module.exports = yeoman.generators.Base.extend({
     this.prompt(prompts, function (props) {
       this.props = props;
       // To access props later use this.props.someOption;
+      this.props.nameCamalize = _s.camelize(this.props.name);
       this.props.nameSlug = _s.slugify(this.props.name);
       this.props.sailsName = 'sails-hook-' + this.props.nameSlug;
 
