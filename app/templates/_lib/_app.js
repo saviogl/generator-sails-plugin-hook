@@ -108,7 +108,7 @@ var self = module.exports = {
 			  });
 			}
   	], function afterAll(err){
-  		if ( err ) sails.log.warn('sails-hook-jwt:: Error encountered trying to register files: ', err);
+  		if ( err ) sails.log.warn('<%= sailsName %>:: Error encountered trying to register files: ', err);
   	});
 	}
 }
