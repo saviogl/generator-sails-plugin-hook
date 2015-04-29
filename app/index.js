@@ -4,6 +4,7 @@ var chalk = require('chalk');
 var yosay = require('yosay');
 var _s = require('underscore.string');
 var path = require('path');
+var mkdirp = require('mkdirp');
 
 module.exports = yeoman.generators.Base.extend({
   initializing: function () {
@@ -44,12 +45,12 @@ module.exports = yeoman.generators.Base.extend({
 
   writing: {
     app: function () {
-      this.dest.mkdir(path.join(this.props.sailsName, 'api'));
-      this.dest.mkdir(path.join(this.props.sailsName, 'api/controllers'));
-      this.dest.mkdir(path.join(this.props.sailsName, 'api/models'));
-      this.dest.mkdir(path.join(this.props.sailsName, 'api/policies'));
-      this.dest.mkdir(path.join(this.props.sailsName, 'api/services'));
-      this.dest.mkdir(path.join(this.props.sailsName, 'config'));
+      mkdirp.sync(this.destinationPath( path.join( this.props.sailsName, 'api' ) ));
+      mkdirp.sync(this.destinationPath( path.join( this.props.sailsName, 'api/controllers' ) ) );
+      mkdirp.sync(this.destinationPath( path.join( this.props.sailsName, 'api/models' ) ) );
+      mkdirp.sync(this.destinationPath( path.join( this.props.sailsName, 'api/policies' ) ) );
+      mkdirp.sync(this.destinationPath( path.join( this.props.sailsName, 'api/services' ) ) );
+      mkdirp.sync(this.destinationPath( path.join( this.props.sailsName, 'config' ) ) );
 
       this.fs.copy(
         this.templatePath('_lib/_app.js'),
