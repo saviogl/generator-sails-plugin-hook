@@ -44,6 +44,13 @@ module.exports = yeoman.generators.Base.extend({
 
   writing: {
     app: function () {
+      this.dest.mkdir(path.join(this.props.sailsName, 'api'));
+      this.dest.mkdir(path.join(this.props.sailsName, 'api/controllers'));
+      this.dest.mkdir(path.join(this.props.sailsName, 'api/models'));
+      this.dest.mkdir(path.join(this.props.sailsName, 'api/policies'));
+      this.dest.mkdir(path.join(this.props.sailsName, 'api/services'));
+      this.dest.mkdir(path.join(this.props.sailsName, 'config'));
+
       this.fs.copy(
         this.templatePath('_lib/_app.js'),
         this.destinationPath(path.join(this.props.sailsName, 'lib/app.js'))
